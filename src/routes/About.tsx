@@ -1,10 +1,26 @@
+import { useEffect, useState } from "react";
+
 export default function AboutPage() {
+    const [data, setData] = useState([]);
+
+    async function fetchData() {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/2')
+        const json = await response.json();
+        setData(json)
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    if (!data) {
+        <div>yükleniyor....</div>
+    }
+
     return (
         <div>
-            <h1>Merhaba ben Emre SEFEROĞLU</h1>
-            <h1>Sayfaya hoşgeldiniz</h1>
-            <h1>Şu yılda kurulduk</h1>
-            <p>Misyonumuz</p>
+            <h1>Hakkkımızda ?</h1>
+            <p>{JSON.stringify(data)}</p>
         </div>
     )
 }

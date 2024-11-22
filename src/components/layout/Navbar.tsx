@@ -14,6 +14,7 @@ export function NavbarComp() {
                         <Nav.Link to={`/`} as={NavLink}>Anasayfa</Nav.Link>
                         <Nav.Link to={`/about`} as={NavLink}>Hakkımızda</Nav.Link>
                         <Nav.Link to={`/contact`} as={NavLink}>İletişim</Nav.Link>
+                        <Nav.Link to={`/blog`} as={NavLink}>Bloglarımız</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

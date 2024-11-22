@@ -1,5 +1,7 @@
-
 export default function ContactPage() {
+
+
+
     return (
         <div>
             <h1>İletişim</h1>
