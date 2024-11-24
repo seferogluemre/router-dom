@@ -12,7 +12,11 @@ interface LoaderParams {
     blogId: string
 }
 
-
+export async function loader({ params }: { params: { blogId: LoaderParams } }) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.blogId}`)
+    const json = (await response.json()) as Post;
+    return { post: json }
+}
 
 // loader'dan bir promise dönüyor
 type Loader = typeof loader
