@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { HomePage, ContactPage, AboutPage, ErrorPage, Root, BlogPage, ArchivedPostPage, BlogPostPage } from './routes';
+import { HomePage, ContactPage, AboutPage, ErrorPage, Root, BlogPage, ArchivedPostPage, BlogPostPage, BlogPostLoader } from './routes';
 
 
 const router = createBrowserRouter([
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
               },
               {
                 path: ":blogId",
+                loader: BlogPostLoader as any,
                 element: <BlogPostPage />,
               },
               {
