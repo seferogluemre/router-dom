@@ -13,8 +13,18 @@ interface LoaderParams {
 }
 
 export async function loader({ params }: { params: { blogId: LoaderParams } }) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.blogId}`)
+    const { blogId } = params;
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${blogId}`)
     const json = (await response.json()) as Post;
+    const postNotFound = !json.id;
+
+    if (postNotFound) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Blog Post Not Found "
+        })
+    }
+
     return { post: json }
 }
 
