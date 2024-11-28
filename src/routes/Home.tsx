@@ -8,7 +8,7 @@ export default function HomePage() {
 
     const firstName = UserState((state) => state.firstName);
     const lastName = UserState((state) => state.lastName);
-
+    const age = UserState((state) => state.getAge())
     const setFirstName = UserState((state) => state.setFirstName);
     const setLastName = UserState((state) => state.setLastName);
     const setBirthDate = UserState((state) => state.setBirthDate);
@@ -36,7 +36,9 @@ export default function HomePage() {
             <div style={{ margin: "50px" }}>
                 İsim:{lastName}
             </div>
-
+            <div style={{ margin: "50px" }}>
+                Yaş:{age}
+            </div>  
             <div style={{ margin: "100px" }}>
                 <Form>
                     <div className="mb-4">
