@@ -4,7 +4,6 @@ import { useBearStore } from "../stores/CounterStore";
 
 export default function BlogPage() {
 
-
     const bears = useBearStore((state) => state.bears)
     const increasePopulation = useBearStore((state) => state.increasePopulation)
     const removeAllBears = useBearStore((state) => state.removeAllBears)
